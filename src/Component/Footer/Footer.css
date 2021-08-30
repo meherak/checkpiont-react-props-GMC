@@ -1,0 +1,10 @@
+.pt-2 {
+  color: azure !important;
+}
+.btn-primary {
+  background-color: #f4d036de !important;
+  color: black !important;
+}
+.row {
+  justify-content: center;
+}
