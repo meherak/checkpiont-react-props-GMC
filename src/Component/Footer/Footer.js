@@ -11,7 +11,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <MDBFooter backgroundColor="light" className="text-center text-lg-left">
+      <MDBFooter backgroundcolor="light" className="text-center text-lg-left">
         <MDBContainer className="p-4 pb-0">
           <form action="">
             <MDBRow>

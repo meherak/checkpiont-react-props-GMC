@@ -1,8 +1,12 @@
-import './App.css';
-import Footer from './Component/Footer/Footer';
-import MovieCards from './Component/MovieCards/MovieCards';
-import Navbar from './Component/Navbar/Navbar';
-let moviesData = [
+import "./App.css";
+import Footer from "./Component/Footer/Footer";
+import MovieCards from "./Component/MovieCards/MovieCards";
+
+import ShowHideModal from "./Component/Modal/ShowHideModal";
+import { useState } from "react";
+import SearchAppBar from "./Component/Navbar/Navbar";
+function App() {
+  let moviesData = [
     {
       id: Math.random(),
       image:
@@ -83,15 +87,34 @@ let moviesData = [
         "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
     },
   ];
-function App() {
+  const [data, setData] = useState(moviesData);
+  const handleDataFromModal = (newMovie) => {
+    setData([...data, newMovie]);
+  };
+  const [searcheMovie, setSearcheMovie] = useState("");
+  const handleSearcheMovie = (movieName) => {
+    setSearcheMovie(movieName);
+  };
+  const [searcheStars, setSearcheStars] = useState("");
+  const handleStars = (movieRating) => {
+    setSearcheStars(movieRating);
+  };
+
   return (
     <div className="App">
-      <Navbar/>
-      <MovieCards MovieCards={moviesData}  />
-      <Footer/>
+      <SearchAppBar
+        handleSearcheMovie={handleSearcheMovie}
+        handleStars={handleStars}
+      />
+      <ShowHideModal handleDataFromModal={handleDataFromModal} />
+      <MovieCards
+        MovieCards={data}
+        SearcheMovie={searcheMovie}
+        searcheStars={searcheStars}
+      />
+      <Footer />
     </div>
   );
 }
 
 export default App;
-

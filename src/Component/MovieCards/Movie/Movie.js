@@ -1,4 +1,5 @@
 import React from "react";
+import ReactStars from "react-rating-stars-component";
 import "./Movie.scss";
 
 const Movie = ({ movieData }) => {
@@ -20,6 +21,15 @@ const Movie = ({ movieData }) => {
           </div>
           <div className="movie_desc">
             <p className="text">{movieData.description}</p>
+            <div>
+              <ReactStars
+                count={5}
+                value={movieData.rating}
+                size={24}
+                activeColor="#ffd700"
+                edit={false}
+              />
+            </div>
           </div>
         </div>
         <div
